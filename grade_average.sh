@@ -1,8 +1,10 @@
 #!/bin/bash
+set -e
 
-# Login cookie for stads
-# TODO: Acquire cookie using curl or something
-COOKIE="au_wayf_user=true; allow_cookies=true; ajs_anonymous_id=%224d5a28df-8342-46ae-8049-dffebb68c222%22; _ceg.s=ogmxlv; _ceg.u=ogmxlv; ajs_user_id=null; ajs_group_id=null; mitau_studerende_tidligere=true; _gat_default=1; _gat_au_t0=1; _gat_au_t1=1; _gat_au_t2=1; _ga=GA1.2.1260040394.1479050389; selvbetjening=ZqWNRAOPDg1P0XjkhRyGqKxl-b10An2H2bJAGzIHMjE8nZ3uJV6s!1920137993"
+# Logged-in cookie for stads
+COOKIE=$(node index.js $1 $2)
+#COOKIE="; selvbetjening=5EGOUHPZvXFYXrYkEHMYzoFZVM1nLW3ZaZ4k5U45rcZKzfjZuERS!-229613275; au_wayf_user=true"
+echo "Cookie: $COOKIE"
 
 # Get results website
 SITE=$(curl -q --cookie "$COOKIE" https://sbstads.au.dk/sb_STAP/sb/resultater/studresultater.jsp 2>/dev/null)
