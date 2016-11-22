@@ -13,3 +13,6 @@ npm run chromedriver
 ```
 npm start USERNAME PASSWORD
 ```
+
+## TODO
+Acquire cookie without utilizing selenium.
